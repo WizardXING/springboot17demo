@@ -16,6 +16,25 @@ spring:
       additional-paths: src/main/java
       exclude: static/**
 
+# RocketMQ配置
+rocketmq:
+  name-server: XXX:9876
+  producer:
+    group: springboot17demo-producer-group
+    send-message-timeout: 3000
+    retry-times-when-send-failed: 3
+  consumer:
+    group: springboot17demo-consumer-group
+  topic: XXX
+
+# 线程池配置
+thread-pool:
+  core-pool-size: 5
+  max-pool-size: 10
+  queue-capacity: 100
+  keep-alive-seconds: 60
+  thread-name-prefix: message-process-
+
 # 日志配置
 logging:
   level:

@@ -69,7 +69,23 @@
             color: white;
             margin-right: 15px;
         }
+        .function-buttons {
+            margin-top: 15px;
+        }
+        .function-button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .function-button:hover {
+            background-color: #27ae60;
+        }
     </style>
+    <script src="/js/threadPool.js"></script>
 </head>
 <body>
     <header>
@@ -86,6 +102,13 @@
     </header>
 
     <div class="container">
+        <div class="feature" sec:authorize="isAuthenticated()">
+            <h2>系统功能</h2>
+            <div class="function-buttons">
+                <button onclick="checkThreadPoolStatus()" class="function-button">检查线程池状态</button>
+            </div>
+        </div>
+
         <div class="feature">
             <h2>项目特点</h2>
             <ul>

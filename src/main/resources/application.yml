@@ -18,6 +18,7 @@ spring:
 
 # RocketMQ配置
 rocketmq:
+  enabled: false  # 控制RocketMQ是否自动初始化
   name-server: XXX:9876
   producer:
     group: springboot17demo-producer-group

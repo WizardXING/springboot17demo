@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springboot17demo
+  
+  # 开发工具配置
+  # 这是Spring Boot的开发工具（DevTools）配置部分。
+  # 它启用了热重启功能（enabled: true），指定了需要监视的额外路径为src/main/java（当这个目录下的文件发生变化时会触发重启），
+  # 同时排除了static目录下的文件（这些静态资源的变化不会触发应用重启）。
+  # 这些配置可以提高开发效率，让你在开发过程中修改代码后不需要手动重启应用。
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: static/**
+
+# RocketMQ配置
+rocketmq:
+  enabled: false  # 控制RocketMQ是否自动初始化
+  name-server: XXX:9876
+  producer:
+    group: springboot17demo-producer-group
+    send-message-timeout: 3000
+    retry-times-when-send-failed: 3
+  consumer:
+    group: springboot17demo-consumer-group
+  topic: XXX
+
+# 线程池配置
+thread-pool:
+  core-pool-size: 5
+  max-pool-size: 10
+  queue-capacity: 100
+  keep-alive-seconds: 60
+  thread-name-prefix: message-process-
+
+# 日志配置
+logging:
+  level:
+    root: info
+    com.example.springboot17demo: debug

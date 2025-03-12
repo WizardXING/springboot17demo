@@ -87,10 +87,28 @@
             <p><strong>首页API：</strong> 返回欢迎信息</p>
             <a href="/" class="api-link">访问API</a>
         </div>
+
+        <div class="feature">
+            <h2>系统功能</h2>
+            <div class="function-buttons">
+                <button onclick="checkRocketMQStatus()" class="function-button">查看RocketMQ状态</button>
+            </div>
+        </div>
     </div>
     
     <footer>
         <p>&copy; 2023 Spring Boot示例项目 | 技术支持</p>
     </footer>
+    <script>
+    async function checkRocketMQStatus() {
+        try {
+            const response = await fetch('/api/rocketmq/status');
+            const status = await response.text();
+            alert(status);
+        } catch (error) {
+            alert('获取RocketMQ状态失败：' + error.message);
+        }
+    }
+    </script>
 </body>
 </html>

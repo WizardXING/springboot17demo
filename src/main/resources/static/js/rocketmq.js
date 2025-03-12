@@ -79,24 +79,3 @@ function initRocketMQ() {
         alert('RocketMQ初始化失败，请查看控制台了解详细信息。');
     });
 }
-
-function checkRocketMQStatus() {
-    fetch('/api/rocketmq/status', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('RocketMQ状态: ' + data.status);
-        } else {
-            alert('获取RocketMQ状态失败：' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('获取RocketMQ状态失败:', error);
-        alert('获取RocketMQ状态失败，请查看控制台了解详细信息。');
-    });
-}

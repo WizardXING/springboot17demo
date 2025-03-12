@@ -5,6 +5,13 @@ spring:
   application:
     name: springboot17demo
   
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/location_db?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
   # 开发工具配置
   # 这是Spring Boot的开发工具（DevTools）配置部分。
   # 它启用了热重启功能（enabled: true），指定了需要监视的额外路径为src/main/java（当这个目录下的文件发生变化时会触发重启），
@@ -15,6 +22,13 @@ spring:
       enabled: true
       additional-paths: src/main/java
       exclude: static/**
+
+# MyBatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.springboot17demo.model
+  configuration:
+    map-underscore-to-camel-case: true
 
 # RocketMQ配置
 rocketmq:
@@ -41,3 +55,10 @@ logging:
   level:
     root: info
     com.example.springboot17demo: debug
+
+# 位置数据源配置
+location:
+  data:
+    source: csv
+    csv:
+      path: ./data/locations.csv
